@@ -13,5 +13,10 @@ describe('My First Test', () => {
         cy.get('.action-email')
             .type('devifajar2424@gmail.com')
             .should('have.value', 'devifajar2424@gmail.com')
+<<<<<<< HEAD
     })
 })
+=======
+    }
+}
+>>>>>>> 5d8f02bd0bcf8ac8063fa484185256747f964c73
