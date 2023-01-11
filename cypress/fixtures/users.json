@@ -1,0 +1,9 @@
+{
+    "username": "username",
+    "password": "password",
+    "payee": "bofa",
+    "account": "5",
+    "amount": 100,
+    "date": "2023-01-18",
+    "description": "contoh isi"
+}

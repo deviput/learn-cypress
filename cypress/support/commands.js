@@ -23,3 +23,26 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (username, password) => {
+    cy.clearCookies()
+    cy.clearLocalStorage()
+    cy.visit('http://zero.webappsecurity.com/login.html')
+    cy.get('#user_login').type(username)
+    cy.get('#user_password').type(password)
+    cy.get('#user_remember_me').check()
+    cy.get('.form-actions .btn-primary').click()
+})
+
+Cypress.Commands.add('PayBills', (payee, account, amount, date, description) => {
+    cy.clearCookies()
+    cy.clearLocalStorage()
+    cy.get('#sp_payee').select(payee)
+    cy.get('#sp_account').select(account)
+    cy.get('#sp_amount').type(amount)
+    cy.get('#sp_date').type(date)
+    cy.get('#sp_amount').click()
+    cy.get('#sp_description').type(description)
+    cy.get('#pay_saved_payees').click()
+    cy.get('.page-header h3').should('contain', 'Log in to ZeroBank')
+})
